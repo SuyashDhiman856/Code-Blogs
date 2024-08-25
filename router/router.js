@@ -4,7 +4,6 @@ const blogs = require("../data/blogs");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-    // res.sendFile(path.join(__dirname, "../static/index.html"));
     res.render('home', {
         blogs: blogs.blogs,
     });
@@ -25,12 +24,12 @@ router.get("/contact", (req, res) => {
     res.render('contact');
 })
 
-router.get("/blogposts/:slug", (req, res) => {
-    res.render(`blogposts/${req.params.slug}`);
+router.get("/blogpost/:slug", (req, res) => {
+    res.render(`blogpost/${req.params.slug}`);
 })
 
 router.get("/blogposts/popular", (req, res) => {
-    res.render('popular', {
+    res.render('blogposts/popular', {
         blogs: blogs.blogs,
     });
 })
@@ -41,8 +40,8 @@ router.get("/blogposts/new", (req, res) => {
     });
 })
 
-router.get("/blogposts", (req, res) => {
-    res.render('blogposts', {
+router.get("/blogpost", (req, res) => {
+    res.render('blogpost', {
         blogs: blogs.blogs,
     })
 })
