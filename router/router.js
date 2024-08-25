@@ -1,6 +1,5 @@
 const express = require("express");
 const path = require("path");
-const fs = require("fs");
 const blogs = require("../data/blogs");
 const router = express.Router();
 
@@ -30,12 +29,16 @@ router.get("/blogposts/:slug", (req, res) => {
     res.render(`blogposts/${req.params.slug}`);
 })
 
-router.get("/popular", (req, res) => {
-    res.render('popular');
+router.get("/blogposts/popular", (req, res) => {
+    res.render('popular', {
+        blogs: blogs.blogs,
+    });
 })
 
-router.get("/new", (req, res) => {
-    res.render('new');
+router.get("/blogposts/new", (req, res) => {
+    res.render('blogposts/new', {
+        blogs: blogs.blogs,
+    });
 })
 
 router.get("/blogposts", (req, res) => {
