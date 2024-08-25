@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn JavaScript Programming</title>
+    <style>
+        /* Container styles */
+.container {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 250px;
+    background-color: #0056b3; /* Blue color */
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: translateX(0px);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+    color: white;
+    padding-top: 20px;
+    margin-top: 100px;
+}
+
+/* Sidebar link styles */
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    text-align: left;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.sidebar ul li a:hover {
+    background-color: #004494;
+}
+
+/* Content area styles */
+.content {
+    margin-left: 250px; /* Adjusts based on the width of the sidebar */
+    padding: 20px;
+    flex: 1;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+/* Toggle button */
+.toggle-btn {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    font-size: 30px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 1100;
+    border-radius: 5px;
+    margin-top: 80px;
+}
+
+/* Style for code blocks */
+code {
+    background-color: #f5f5f5; /* Light gray background */
+    border-left: 5px solid #0056b3; /* Blue border on the left */
+    padding: 10px;
+    display: block;
+    white-space: pre-wrap;
+    font-family: 'Courier New', Courier, monospace;
+    overflow-x: auto; /* Handle long lines */
+}
+
+/* For <pre> blocks specifically */
+pre {
+    margin: 20px 0;
+    border-radius: 4px; /* Optional: rounded corners */
+}
+
+/* Hide sidebar and adjust content for small screens */
+@media screen and (max-width: 1000px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .content {
+        width: 90%;
+        margin-left: 0;
+    }
+
+    .toggle-btn {
+        display: block;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+
+        <aside id="sidebar" class="sidebar">
+            <ul>
+                <li><a href="#basics">JavaScript Basics</a></li>
+                <li><a href="#variables">JS Variables & Datatypes</a></li>
+                <li><a href="#operators">JS Operators</a></li>
+                <li><a href="#loops">JS Loops</a></li>
+                <li><a href="#performance">JS Performance & Debugging</a></li>
+                <li><a href="#object">JS Object</a></li>
+                <li><a href="#function">JS Function</a></li>
+                <li><a href="#array">JS Array</a></li>
+                <li><a href="#string">JS String</a></li>
+                <li><a href="#numbers">JS Numbers</a></li>
+                <li><a href="#math">JS Math</a></li>
+                <li><a href="#map">JS Map</a></li>
+                <li><a href="#set">JS Set</a></li>
+                <li><a href="#objects">JS Objects</a></li>
+                <li><a href="#advance">JS Advance</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <section id="basics">
+                <h2>JavaScript Basics</h2>
+                <p>JavaScript is a high-level, interpreted programming language that conforms to the ECMAScript specification. It's a language that is also characterized as dynamic, weakly typed, prototype-based and multi-paradigm.</p>
+                <pre><code>// This is a comment
+console.log("Hello, World!"); // This prints to the console
+</code></pre>
+            </section>
+
+            <section id="variables">
+                <h2>JS Variables & Datatypes</h2>
+                <p>Variables in JavaScript are containers for storing data values. JavaScript has several data types including Number, String, Boolean, Object, and more.</p>
+                <pre><code>let number = 5; // Number
+const string = "Hello"; // String
+var boolean = true; // Boolean
+const array = [1, 2, 3]; // Array
+const object = {name: "John", age: 30}; // Object
+</code></pre>
+            </section>
+
+            <section id="operators">
+                <h2>JS Operators</h2>
+                <p>JavaScript has various types of operators: arithmetic, comparison, logical, assignment, and more.</p>
+                <pre><code>let x = 5;
+let y = 2;
+console.log(x + y); // Addition: 7
+console.log(x - y); // Subtraction: 3
+console.log(x * y); // Multiplication: 10
+console.log(x / y); // Division: 2.5
+console.log(x % y); // Modulus: 1
+console.log(x == y); // Equality check: false
+console.log(x && y); // Logical AND: 2
+</code></pre>
+            </section>
+
+            <section id="loops">
+                <h2>JS Loops</h2>
+                <p>Loops are used to repeat a block of code until a certain condition is met. JavaScript has several types of loops.</p>
+                <pre><code>// For loop
+for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
+
+// While loop
+let j = 0;
+while (j < 5) {
+    console.log(j);
+    j++;
+}
+
+// Do-while loop
+let k = 0;
+do {
+    console.log(k);
+    k++;
+} while (k < 5);
+</code></pre>
+            </section>
+
+            <section id="performance">
+                <h2>JS Performance & Debugging</h2>
+                <p>Optimizing JavaScript performance involves minimizing DOM access, using efficient loops, and avoiding global variables. Debugging can be done using console.log() or browser developer tools.</p>
+                <pre><code>// Performance: Use local variables
+function sum() {
+    let result = 0;
+    for (let i = 0; i < 1000; i++) {
+        result += i;
+    }
+    return result;
+}
+
+// Debugging
+function divide(a, b) {
+    console.log("Inputs:", a, b); // Debug point
+    if (b === 0) {
+        console.error("Cannot divide by zero"); // Error logging
+        return;
+    }
+    return a / b;
+}
+</code></pre>
+            </section>
+
+            <section id="object">
+                <h2>JS Object</h2>
+                <p>Objects in JavaScript are containers for named values called properties or methods.</p>
+                <pre><code>let person = {
+    firstName: "John",
+    lastName: "Doe",
+    age: 30,
+    fullName: function() {
+        return this.firstName + " " + this.lastName;
+    }
+};
+
+console.log(person.fullName()); // Outputs: John Doe
+</code></pre>
+            </section>
+
+            <section id="function">
+                <h2>JS Function</h2>
+                <p>Functions are blocks of code designed to perform a particular task. They are executed when they are called or invoked.</p>
+                <pre><code>// Function declaration
+function greet(name) {
+    return "Hello, " + name + "!";
+}
+
+// Function expression
+const square = function(number) {
+    return number * number;
+};
+
+// Arrow function
+const cube = (number) => number * number * number;
+
+console.log(greet("Alice")); // Outputs: Hello, Alice!
+console.log(square(4)); // Outputs: 16
+console.log(cube(3)); // Outputs: 27
+</code></pre>
+            </section>
+
+            <section id="array">
+                <h2>JS Array</h2>
+                <p>Arrays are used to store multiple values in a single variable. They are objects that can hold collections of data.</p>
+                <pre><code>let fruits = ["Apple", "Banana", "Orange"];
+
+// Adding an element to the end
+fruits.push("Mango");
+
+// Removing the last element
+fruits.pop();
+
+// Looping through an array
+fruits.forEach(function(item, index) {
+    console.log(index, item);
+});
+
+// Mapping an array
+let lengths = fruits.map(fruit => fruit.length);
+
+console.log(fruits); // Outputs: ["Apple", "Banana", "Orange"]
+console.log(lengths); // Outputs: [5, 6, 6]
+</code></pre>
+            </section>
+
+            <section id="string">
+                <h2>JS String</h2>
+                <p>Strings are used to store and manipulate text. They are immutable in JavaScript, meaning that strings cannot be changed, only replaced.</p>
+                <pre><code>let text = "Hello, World!";
+
+console.log(text.length); // Outputs: 13
+console.log(text.toUpperCase()); // Outputs: HELLO, WORLD!
+console.log(text.substring(0, 5)); // Outputs: Hello
+console.log(text.split(", ")); // Outputs: ["Hello", "World!"]
+
+// Template literals
+let name = "Alice";
+console.log(`Hello, ${name}!`); // Outputs: Hello, Alice!
+</code></pre>
+            </section>
+
+            <section id="numbers">
+                <h2>JS Numbers</h2>
+                <p>JavaScript has only one type of number. Numbers can be written with or without decimals.</p>
+                <pre><code>let x = 3.14; // A number with decimals
+let y = 3; // A number without decimals
+
+// Basic operations
+console.log(x + y); // Addition
+console.log(x - y); // Subtraction
+console.log(x * y); // Multiplication
+console.log(x / y); // Division
+
+// Special numeric values
+console.log(Infinity); // Infinity
+console.log(-Infinity); // Negative Infinity
+console.log(NaN); // Not a Number
+</code></pre>
+            </section>
+
+            <section id="math">
+                <h2>JS Math</h2>
+                <p>The Math object allows you to perform mathematical tasks on numbers.</p>
+                <pre><code>console.log(Math.PI); // Outputs: 3.141592653589793
+console.log(Math.round(4.7)); // Outputs: 5
+console.log(Math.pow(2, 3)); // Outputs: 8
+console.log(Math.sqrt(16)); // Outputs: 4
+console.log(Math.random()); // Outputs: a random number between 0 and 1
+
+// Generate a random integer between 1 and 10
+console.log(Math.floor(Math.random() * 10) + 1);
+</code></pre>
+            </section>
+
+            <section id="map">
+                <h2>JS Map</h2>
+                <p>The Map object holds key-value pairs and remembers the original insertion order of the keys.</p>
+                <pre><code>let map = new Map();
+
+map.set('apple', 500);
+map.set('banana', 300);
+map.set('orange', 200);
+
+console.log(map.get('banana')); // Outputs: 300
+console.log(map.has('apple')); // Outputs: true
+console.log(map.size); // Outputs: 3
+
+map.delete('orange');
+
+// Iterating over Map
+for (let [key, value] of map) {
+    console.log(key + ' = ' + value);
+}
+</code></pre>
+            </section>
+
+            <section id="set">
+                <h2>JS Set</h2>
+                <p>The Set object lets you store unique values of any type, whether primitive values or object references.</p>
+                <pre><code>let set = new Set([1, 2, 3, 4, 5]);
+
+set.add(6);
+set.add(1); // This won't be added as 1 already exists
+
+console.log(set.has(3)); // Outputs: true
+console.log(set.size); // Outputs: 6
+
+set.delete(4);
+
+// Iterating over Set
+for (let item of set) {
+    console.log(item);
+}
+</code></pre>
+            </section>
+
+            <section id="objects">
+                <h2>JS Objects</h2>
+                <p>Objects are variables that can contain many values. They are written as name:value pairs.</p>
+                <pre><code>let person = {
+    firstName: "John",
+    lastName: "Doe",
+    age: 30,
+    eyeColor: "blue"
+};
+
+// Accessing object properties
+console.log(person.firstName); // Outputs: John
+console.log(person['lastName']); // Outputs: Doe
+
+// Adding new properties
+person.nationality = "English";
+
+// Object methods
+let car = {
+    brand: "Ford",
+    model: "Mustang",
+    start: function() {
+        console.log("The car is starting...");
+    }
+};
+
+car.start(); // Outputs: The car is starting...
+</code></pre>
+            </section>
+
+            <section id="advance">
+                <h2>JS Advance</h2>
+                <p>Advanced JavaScript includes topics like closures, promises, async/await, and more.</p>
+                <pre><code>// Closure
+function outerFunction(x) {
+    return function(y) {
+        return x + y;
+    }
+}
+let closure = outerFunction(5);
+console.log(closure(3)); // Outputs: 8
+
+// Promise
+let promise = new Promise((resolve, reject) => {
+    setTimeout(() => resolve("Promise resolved"), 1000);
+});
+promise.then(value => console.log(value));
+
+// Async/Await
+async function asyncFunction() {
+    let result = await promise;
+    console.log(result);
+}
+asyncFunction();
+</code></pre>
+            </section>
+        </main>
+    </div>
+    <script>
+        function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const width = window.innerWidth;
+
+    // Only toggle the sidebar if the screen width is less than 768px (small screens)
+    if (width <script 768) {
+        if (sidebar.style.transform === 'translateX(0px)') {
+            sidebar.style.transform = 'translateX(-100%)';
+        } else {
+            sidebar.style.transform = 'translateX(0px)';
+        }
+    }
+}
+
+// Ensure the sidebar is always visible on wide screens after resizing
+window.addEventListener('resize', function() {
+    const sidebar = document.getElementById('sidebar');
+    const width = window.innerWidth;
+
+    if (width >= 768) {
+        sidebar.style.transform = 'translateX(0px)';  // Keep sidebar visible on wide screens
+    } else {
+        sidebar.style.transform = 'translateX(-100%)'; // Hide sidebar on small screens after resizing
+    }
+});
+</script>
+</body>
+</html>

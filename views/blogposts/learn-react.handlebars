@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn React Library</title>
+    <style>
+        /* Container styles */
+        .container {
+            display: flex;
+            flex-direction: row;
+            min-height: 100vh;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            width: 250px;
+            background-color: #61DAFB; /* React light blue color */
+            position: fixed;
+            height: 100%;
+            top: 0;
+            left: 0;
+            transform: translateX(0px);
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+            color: #282C34; /* React dark background color */
+            padding-top: 20px;
+            margin-top: 100px;
+        }
+
+        /* Sidebar link styles */
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .sidebar ul li a {
+            color: #282C34;
+            text-decoration: none;
+            display: block;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #282C34;
+            color: #61DAFB;
+        }
+
+        /* Content area styles */
+        .content {
+            margin-left: 250px; /* Adjusts based on the width of the sidebar */
+            padding: 20px;
+            flex: 1;
+            transition: margin-left 0.3s ease-in-out;
+        }
+
+        /* Toggle button */
+        .toggle-btn {
+            display: none;
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            font-size: 30px;
+            background-color: #61DAFB;
+            color: #282C34;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            z-index: 1100;
+            border-radius: 5px;
+            margin-top: 80px;
+        }
+
+        /* Style for code blocks */
+        code {
+            background-color: lightgray;
+            border-left: 5px solid #61DAFB;
+            color: #61DAFB;
+            padding: 10px;
+            display: block;
+            white-space: pre-wrap;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: auto; /* Handle long lines */
+        }
+
+        /* For <pre> blocks specifically */
+        pre {
+            margin: 20px 0;
+            border-radius: 4px; /* Optional: rounded corners */
+        }
+
+        /* Hide sidebar and adjust content for small screens */
+        @media screen and (max-width: 1000px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .content {
+                width: 90%;
+                margin-left: 0;
+            }
+
+            .toggle-btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+
+        <aside id="sidebar" class="sidebar">
+            <ul>
+                <li><a href="#introduction">React Introduction</a></li>
+                <li><a href="#setup">React Environment Setup</a></li>
+                <li><a href="#fundamentals">React Fundamentals</a></li>
+                <li><a href="#components">React Components</a></li>
+                <li><a href="#props-states">React Props & States</a></li>
+                <li><a href="#hooks">React Hooks</a></li>
+                <li><a href="#apps">React Apps</a></li>
+                <li><a href="#deployment">React Connection & Deployment</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <section id="introduction">
+                <h2>React Introduction</h2>
+                <p>React is a JavaScript library for building user interfaces. It's declarative, efficient, and flexible.</p>
+                <pre><code>// A simple React component
+import React from 'react';
+
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+
+export default Welcome;
+</code></pre>
+            </section>
+
+            <section id="setup">
+                <h2>React Environment Setup</h2>
+                <p>To start with React, you need Node.js and npm installed. Then you can create a new React app:</p>
+                <pre><code>npx create-react-app my-app
+cd my-app
+npm start
+</code></pre>
+            </section>
+
+            <section id="fundamentals">
+                <h2>React Fundamentals</h2>
+                <p>React is built around the concept of components, JSX, and the Virtual DOM.</p>
+                <pre><code>// JSX example
+const element = <h1>Hello, world!</h1>;
+
+ReactDOM.render(element, document.getElementById('root'));
+</code></pre>
+            </section>
+
+            <section id="components">
+                <h2>React Components</h2>
+                <p>Components are the building blocks of React applications. They can be functional or class-based.</p>
+                <pre><code>// Functional component
+function Greeting(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+
+// Class component
+class Welcome extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.name}</h1>;
+  }
+}
+</code></pre>
+            </section>
+
+            <section id="props-states">
+                <h2>React Props & States</h2>
+                <p>Props are used to pass data from parent to child components. State is used for managing component-specific data.</p>
+                <pre><code>// Using props
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+
+// Using state
+class Counter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {count: 0};
+  }
+
+  render() {
+    return <div>Count: {this.state.count}</div>;
+  }
+}
+</code></pre>
+            </section>
+
+            <section id="hooks">
+                <h2>React Hooks</h2>
+                <p>Hooks let you use state and other React features without writing a class.</p>
+                <pre><code>import React, { useState } from 'react';
+
+function Example() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+</code></pre>
+            </section>
+
+            <section id="apps">
+                <h2>React Apps</h2>
+                <p>Building a React app involves creating multiple components and managing application state.</p>
+                <pre><code>// App.js
+import React from 'react';
+import Header from './Header';
+import Content from './Content';
+import Footer from './Footer';
+
+function App() {
+  return (
+    <div>
+      <Header />
+      <Content />
+      <Footer />
+    </div>
+  );
+}
+
+export default App;
+</code></pre>
+            </section>
+
+            <section id="deployment">
+                <h2>React Connection & Deployment</h2>
+                <p>React apps can be connected to APIs and deployed to various platforms.</p>
+                <pre><code>// Fetching data from an API
+useEffect(() => {
+  fetch('https://api.example.com/data')
+    .then(response => response.json())
+    .then(data => setData(data));
+}, []);
+
+// Building for production
+npm run build
+</code></pre>
+            </section>
+        </main>
+    </div>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const width = window.innerWidth;
+
+            if (width < 768) {
+                if (sidebar.style.transform === 'translateX(0px)') {
+                    sidebar.style.transform = 'translateX(-100%)';
+                } else {
+                    sidebar.style.transform = 'translateX(0px)';
+                }
+            }
+        }
+
+        window.addEventListener('resize', function() {
+            const sidebar = document.getElementById('sidebar');
+            const width = window.innerWidth;
+
+            if (width >= 768) {
+                sidebar.style.transform = 'translateX(0px)';
+            } else {
+                sidebar.style.transform = 'translateX(-100%)';
+            }
+        });
+    </script>
+</body>
+</html>

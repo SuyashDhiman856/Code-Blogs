@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn JavaScript Programming</title>
+    <style>
+        /* Container styles */
+.container {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 250px;
+    background-color: #0056b3; /* Blue color */
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: translateX(0px);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+    color: white;
+    padding-top: 20px;
+    margin-top: 100px;
+}
+
+/* Sidebar link styles */
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    text-align: left;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.sidebar ul li a:hover {
+    background-color: #004494;
+}
+
+/* Content area styles */
+.content {
+    margin-left: 250px; /* Adjusts based on the width of the sidebar */
+    padding: 20px;
+    flex: 1;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+/* Toggle button */
+.toggle-btn {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    font-size: 30px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 1100;
+    border-radius: 5px;
+    margin-top: 80px;
+}
+
+/* Style for code blocks */
+code{
+    background-color: #f5f5f5; /* Light gray background */
+    border-left: 5px solid #0056b3; /* Blue border on the left */
+    padding: 10px;
+    display: block;
+    white-space: pre-wrap;
+    font-family: 'Courier New', Courier, monospace;
+    overflow-x: auto; /* Handle long lines */
+}
+
+/* For <pre> blocks specifically */
+pre {
+    margin: 20px 0;
+    border-radius: 4px; /* Optional: rounded corners */
+}
+
+
+/* Hide sidebar and adjust content for small screens */
+@media screen and (max-width: 1000px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .content {
+        width: 90%;
+        margin-left: 0;
+    }
+
+    .toggle-btn {
+        display: block;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+
+        <aside id="sidebar" class="sidebar">
+            <ul>
+                <li><a href="#overview">Overview of Java</a></li>
+                <li><a href="#basics">Basics of Java</a></li>
+                <li><a href="#input-output">Input/Output in Java</a></li>
+                <li><a href="#flow-control">Flow Control in Java</a></li>
+                <li><a href="#operators">Operators in Java</a></li>
+                <li><a href="#strings">Strings in Java</a></li>
+                <li><a href="#arrays">Arrays in Java</a></li>
+                <li><a href="#oops">OOPS in Java</a></li>
+                <li><a href="#inheritance">Inheritance in Java</a></li>
+                <li><a href="#abstraction">Abstraction in Java</a></li>
+                <li><a href="#encapsulation">Encapsulation in Java</a></li>
+                <li><a href="#polymorphism">Polymorphism in Java</a></li>
+                <li><a href="#constructors">Constructors in Java</a></li>
+                <li><a href="#methods">Methods in Java</a></li>
+                <li><a href="#interfaces">Interfaces in Java</a></li>
+                <li><a href="#wrapper-classes">Wrapper Classes in Java</a></li>
+                <li><a href="#keywords">Keywords in Java</a></li>
+                <li><a href="#access-modifiers">Access Modifiers in Java</a></li>
+                <li><a href="#memory-allocation">Memory Allocation in Java</a></li>
+                <li><a href="#classes">Classes of Java</a></li>
+                <li><a href="#packages">Packages in Java</a></li>
+                <li><a href="#collection">Java Collection Tutorial</a></li>
+                <li><a href="#exception-handling">Exception Handling in Java</a></li>
+                <li><a href="#multithreading">Multithreading in Java</a></li>
+                <li><a href="#synchronization">Synchronization in Java</a></li>
+                <li><a href="#file-handling">File Handling in Java</a></li>
+                <li><a href="#regex">Java Regex</a></li>
+                <li><a href="#io">Java IO</a></li>
+                <li><a href="#networking">Java Networking</a></li>
+                <li><a href="#jdbc">JDBC - Java Database Connectivity</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <section id="overview">
+                <h2>Overview of Java</h2>
+                <p>Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible. It is a general-purpose language intended to let developers write once, run anywhere (WORA), meaning that code that runs on one platform does not need to be recompiled to run on another.</p>
+            </section>
+
+            <section id="basics">
+                <h2>Basics of Java</h2>
+                <p>Java is known for its simplicity and ease of use, especially for beginners. Here are some key concepts:</p>
+                <ul>
+                    <li><strong>Syntax</strong>: Java syntax is similar to C++, making it easy for those familiar with C-style languages.</li>
+                    <li><strong>Data Types</strong>: Java has primitive data types such as int, char, and double.</li>
+                    <li><strong>Operators</strong>: Java supports various operators including arithmetic, relational, and logical operators.</li>
+                </ul>
+                <pre><code>// Example of a simple Java program
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+</code></pre>
+            </section>
+
+            <section id="input-output">
+                <h2>Input/Output in Java</h2>
+                <p>Java provides various classes for input and output operations, including the <code>Scanner</code> class for reading input and the <code>System.out</code> object for printing output.</p>
+                <pre><code>import java.util.Scanner;
+
+public class InputOutputExample {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter your name: ");
+        String name = scanner.nextLine();
+        System.out.println("Hello, " + name + "!");
+    }
+}
+</code></pre>
+            </section>
+
+            <section id="flow-control">
+                <h2>Flow Control in Java</h2>
+                <p>Java supports various control flow statements to direct the flow of execution. These include:</p>
+                <ul>
+                    <li><strong>If-Else</strong>: Used for conditional execution.</li>
+                    <li><strong>Switch</strong>: Allows multi-way branching based on the value of a variable.</li>
+                    <li><strong>Loops</strong>: Includes <code>for</code>, <code>while</code>, and <code>do-while</code> loops for repeated execution.</li>
+                </ul>
+                <pre><code>public class FlowControlExample {
+    public static void main(String[] args) {
+        int number = 10;
+        if (number > 0) {
+            System.out.println("Number is positive.");
+        } else {
+            System.out.println("Number is non-positive.");
+        }
+        
+        // Loop example
+        for (int i = 0; i < 5; i++) {
+            System.out.println(i);
+        }
+    }
+}
+</code></pre>
+            </section>
+
+            <section id="operators">
+                <h2>Operators in Java</h2>
+                <p>Operators in Java are used to perform operations on variables and values. They include:</p>
+                <ul>
+                    <li><strong>Arithmetic Operators</strong>: +, -, *, /, %</li>
+                    <li><strong>Relational Operators</strong>: ==, !=, >, <, >=, <=</li>
+                    <li><strong>Logical Operators</strong>: &&, ||, !</li>
+                </ul>
+                <pre><code>public class OperatorsExample {
+    public static void main(String[] args) {
+        int a = 10;
+        int b = 20;
+        System.out.println("Sum: " + (a + b));
+        System.out.println("Equal: " + (a == b));
+    }
+}
+</code></pre>
+            </section>
+
+            <section id="strings">
+                <h2>Strings in Java</h2>
+                <p>Java provides a <code>String</code> class for handling text. It supports various methods for string manipulation, such as:</p>
+                <ul>
+                    <li><strong>Length</strong>: <code>length()</code></li>
+                    <li><strong>Concatenation</strong>: <code>concat()</code></li>
+                    <li><strong>Substring</strong>: <code>substring()</code></li>
+                </ul>
+                <pre><code>public class StringsExample {
+    public static void main(String[] args) {
+        String str = "Hello, Java!";
+        System.out.println("Length: " + str.length());
+        System.out.println("Substring: " + str.substring(7));
+    }
+}
+</code></pre>
+            </section>
+
+            <section id="arrays">
+                <h2>Arrays in Java</h2>
+                <p>Arrays are used to store multiple values in a single variable. Java supports both single-dimensional and multi-dimensional arrays.</p>
+                <pre><code>public class ArraysExample {
+    public static void main(String[] args) {
+        int[] numbers = {1, 2, 3, 4, 5};
+        for (int num : numbers) {
+            System.out.println(num);
+        }
+        
+        // Multi-dimensional array
+        int[][] matrix = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+        
+        for (int[] row : matrix) {
+            for (int element : row) {
+                System.out.print(element + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+</code></pre>
+            </section>
+
+            <section id="oops">
+                <h2>OOPS in Java</h2>
+                <p>Java is an object-oriented programming language that supports the principles of OOP:</p>
+                <ul>
+                    <li><strong>Encapsulation</strong>: Bundling data and methods into a single unit (class).</li>
+                    <li><strong>Inheritance</strong>: Mechanism to create a new class using properties of an existing class.</li>
+                    <li><strong>Polymorphism</strong>: Ability to take many forms, achieved through method overriding and overloading.</li>
+                    <li><strong>Abstraction</strong>: Hiding implementation details and showing only functionality.</li>
+                </ul>
+                <pre><code>public class OopsExample {
+    public static void main(String[] args) {
+        Animal animal = new Dog();
+        animal.makeSound();
+    }
+}
+
+abstract class Animal {
+    abstract void makeSound();
+}
+
+class Dog extends Animal {
+    void makeSound() {
+        System.out.println("Woof!");
+    }
+}
+</code></pre>
+            </section>
+
+            <section id="inheritance">
+                <h2>Inheritance in Java</h2>
+                <p>Inheritance allows a new class to inherit properties and methods from an existing class. The existing class is called the superclass, and the new class is called the subclass.</p>
+                <pre><code>public class InheritanceExample {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.bark();
+        dog.eat();
+    }
+}
+
+class Animal {
+    void eat() {
+        System.out.println("This animal eats food.");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Woof!");
+    }
+}
+</code></pre>
+            </section>
+
+            <section id="abstraction">
+                <h2>Abstraction in Java</h2>
+                <p>Abstraction is achieved using abstract classes and interfaces. Abstract classes cannot be instantiated and can contain abstract methods that must be implemented by subclasses.</p>
+                <pre><code>public class AbstractionExample {
+    public static void main(String[] args) {
+        Shape shape = new Circle();
+        shape.draw();
+    }
+}
+
+abstract class Shape {
+    abstract void draw();
+}
+
+class Circle extends Shape {
+    void draw() {
+        System.out.println("Drawing a circle.");
+    }
+}
+</code></pre>
+            </section>
+
+            <section id="encapsulation">
+                <h2>Encapsulation in Java</h2>
+                <p>Encapsulation is the process of wrapping data (variables) and methods into a single unit (class). It helps to protect the data from unauthorized access and modification.</p>
+                <pre><code>public class EncapsulationExample {
+    public static void main(String[] args) {
+        Person person = new Person();
+        person.setName("John");
+        System.out.println("Name: " + person.getName());
+    }
+}
+
+class Person {
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+</code></pre>
+            </section>
+
+            <section id="polymorphism">
+                <h2>Polymorphism in Java</h2>
+                <p>Polymorphism allows objects to be treated as instances of their parent class rather than their actual class. It is achieved through method overriding and method overloading.</p>
+                <pre><code>public class PolymorphismExample {
+    public static void main(String[] args) {
+        Animal animal = new Dog();
+        animal.makeSound();
+        
+        Dog dog = new Dog();
+        dog.makeSound();
+        dog.bark();
+    }
+}
+
+class Animal {
+    void makeSound() {
+        System.out.println("Animal makes a sound.");
+    }
+}
+
+class Dog extends Animal {
+    void makeSound() {
+        System.out.println("Woof!");
+    }
+
+    void bark() {
+        System.out.println("Dog barks.");
+    }
+}
+</code></pre>
+            </section>
+
+            <section id="constructors">
+                <h2>Constructors in Java</h2>
+                <p>Constructors are special methods that are called when an object is instantiated. They initialize the object and have the same name as the class.</p>
+                <pre><code>public class ConstructorsExample {
+    public static void main(String[] args) {
+        Person person = new Person("Alice", 30);
+        System.out.println("Name: " + person.getName() + ", Age: " + person.getAge());
+    }
+}
+
+class Person {
+    private String name;
+    private int age;
+
+    // Constructor
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+}
+</code></pre>
+            </section>
+
+            <section id="methods">
+                <h2>Methods in Java</h2>
+                <p>Methods are blocks of code that perform specific tasks. They can be called to execute code and return results. Methods can be categorized as:</p>
+                <ul>
+                    <li><strong>Instance Methods</strong>: Operate on instances of a class.</li>
+                    <li><strong>Static Methods</strong>: Belong to the class itself rather than an instance.</li>
+                </ul>
+                <pre><code>public class MethodsExample {
+    public static void main(String[] args) {
+        int result = add(5, 10);
+        System.out.println("Sum: " + result);
+        
+        MethodsExample example = new MethodsExample();
+        example.displayMessage();
+    }
+
+    // Static method
+    static int add(int a, int b) {
+        return a + b;
+    }
+
+    // Instance method
+    void displayMessage() {
+        System.out.println("Hello from instance method!");
+    }
+}
+</code></pre>
+            </section>
+
+            <section id="interfaces">
+                <h2>Interfaces in Java</h2>
+                <p>Interfaces are used to achieve abstraction and multiple inheritance. An interface defines a contract that implementing classes must adhere to.</p>
+                <pre><code>public class InterfacesExample {
+    public static void main(String[] args) {
+        Animal animal = new Dog();
+        animal.makeSound();
+    }
+}
+
+interface Animal {
+    void makeSound();
+}
+
+class Dog implements Animal {
+    public void makeSound() {
+        System.out.println("Woof!");
+    }
+}
+</code></pre>
+            </section>
+
+            <section id="wrapper-classes">
+                <h2>Wrapper Classes in Java</h2>
+                <p>Wrapper classes are used to convert primitive data types into objects. They provide methods to convert between primitive types and their corresponding objects.</p>
+                <pre><code>public class WrapperClassesExample {
+    public static void main(String[] args) {
+        int number = 10;
+        Integer wrappedNumber = Integer.valueOf(number);
+        System.out.println("Wrapped Number: " + wrappedNumber);
+        
+        String str = "123";
+        int parsedNumber = Integer.parseInt(str);
+        System.out.println("Parsed Number: " + parsedNumber);
+    }
+}
+</code></pre>
+            </section>
+
+            <section id="keywords">
+                <h2>Keywords in Java</h2>
+                <p>Java has a set of reserved keywords that have special meaning in the language. These keywords cannot be used as identifiers (e.g., variable names, function names).</p>
+                <pre><code>// Examples of Java keywords
+public class KeywordsExample {
+    public static void main(String[] args) {
+        int number = 10;
+        if (number > 0) {
+            System.out.println("Number is positive.");
+        }
+    }
+}
+</code></pre>
+            </section>
+
+            <section id="access-modifiers">
+                <h2>Access Modifiers in Java</h2>
+                <p>Access modifiers control the visibility of classes, methods, and variables. The four main access modifiers are:</p>
+                <ul>
+                    <li><strong>public</strong>: Accessible from any other class.</li>
+                    <li><strong>private</strong>: Accessible only within the same class.</li>
+                    <li><strong>protected</strong>: Accessible within the same package and subclasses.</li>
+                    <li><strong>default</strong>: No modifier; accessible only within the same package.</li>
+                </ul>
+                <pre><code>public class AccessModifiersExample {
+    public int publicVar = 1;
+    private int privateVar = 2;
+    protected int protectedVar = 3;
+    int defaultVar = 4;
+
+    public static void main(String[] args) {
+        AccessModifiersExample example = new AccessModifiersExample();
+        System.out.println("Public Variable: " + example.publicVar);
+        // System.out.println("Private Variable: " + example.privateVar); // Error
+        System.out.println("Protected Variable: " + example.protectedVar);
+        System.out.println("Default Variable: " + example.defaultVar);
+    }
+}
+</code></pre>
+            </section>
+
+            <section id="memory-allocation">
+                <h2>Memory Allocation in Java</h2>
+                <p>Java manages memory allocation and deallocation through garbage collection. Objects are allocated on the heap, and the garbage collector automatically frees up memory for objects that are no longer in use.</p>
+                <pre><code>public class MemoryAllocationExample {
+    public static void main(String[] args) {
+        Person person = new Person("John", 25);
+        System.out.println("Person created.");
+        
+        // Person object will be garbage collected when no longer referenced
+    }
+}
+
+class Person {
+    String name;
+    int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+</code></pre>
+            </section>
+
+            <section id="classes">
+                <h2>Classes of Java</h2>
+                <p>In Java, a class is a blueprint for creating objects. It defines a data type by bundling data and methods that operate on the data into one single unit.</p>
+                <pre><code>public class Person {
+    String name;
+    int age;
+
+    void display() {
+        System.out.println("Name: " + name + ", Age: " + age);
+    }
+    
+    public static void main(String[] args) {
+        Person person = new Person();
+        person.name = "Alice";
+        person.age = 30;
+        person.display();
+    }
+}
+</code></pre>
+            </section>
+
+            <section id="packages">
+                <h2>Packages in Java</h2>
+                <p>Packages are used to group related classes and interfaces together. They help in organizing code and avoiding naming conflicts.</p>
+                <pre><code>package com.example;
+
+public class Greeting {
+    public static void main(String[] args) {
+        System.out.println("Hello from package com.example!");
+    }
+}
+</code></pre>
+            </section>
+
+            <section id="collection">
+                <h2>Java Collection Tutorial</h2>
+                <p>The Java Collections Framework provides a set of interfaces and classes for working with groups of objects. Key interfaces include:</p>
+                <ul>
+                    <li><strong>List</strong>: Ordered collection (e.g., <code>ArrayList</code>, <code>LinkedList</code>).</li>
+                    <li><strong>Set</strong>: Collection that does not allow duplicates (e.g., <code>HashSet</code>, <code>TreeSet</code>).</li>
+                    <li><strong>Map</strong>: Collection of key-value pairs (e.g., <code>HashMap</code>, <code>TreeMap</code>).</li>
+                </ul>
+                <pre><code>import java.util.*;
+
+public class CollectionExample {
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<>();
+        list.add("Apple");
+        list.add("Banana");
+        System.out.println("List: " + list);
+        
+        Set<String> set = new HashSet<>();
+        set.add("Apple");
+        set.add("Banana");
+        System.out.println("Set: " + set);
+        
+        Map<String, Integer> map = new HashMap<>();
+        map.put("Apple", 1);
+        map.put("Banana", 2);
+        System.out.println("Map: " + map);
+    }
+}
+</code></pre>
+            </section>
+
+            <section id="exception-handling">
+                <h2>Exception Handling in Java</h2>
+                <p>Java provides a robust mechanism for handling runtime errors using exceptions. Key components include:</p>
+                <ul>
+                    <li><strong>try</strong>: Block of code to test for exceptions.</li>
+                    <li><strong>catch</strong>: Block of code to handle exceptions.</li>
+                    <li><strong>finally</strong>: Block of code that executes regardless of whether an exception occurred.</li>
+                    <li><strong>throw</strong>: Used to explicitly throw an exception.</li>
+                    <li><strong>throws</strong>: Used in method signatures to indicate that a method might throw an exception.</li>
+                </ul>
+                <pre><code>public class ExceptionHandlingExample {
+    public static void main(String[] args) {
+        try {
+            int result = 10 / 0;
+        } catch (ArithmeticException e) {
+            System.out.println("Exception caught: " + e);
+        } finally {
+            System.out.println("This block always executes.");
+        }
+    }
+}
+</code></pre>
+            </section>
+
+            <section id="multithreading">
+                <h2>Multithreading in Java</h2>
+                <p>Multithreading allows the concurrent execution of two or more threads. Java provides built-in support for multithreading with the <code>Thread</code> class and the <code>Runnable</code> interface.</p>
+                <pre><code>public class MultithreadingExample {
+    public static void main(String[] args) {
+        Thread thread1 = new Thread(new Task());
+        Thread thread2 = new Thread(new Task());
+        
+        thread1.start();
+        thread2.start();
+    }
+}
+
+class Task implements Runnable {
+    public void run() {
+        System.out.println("Thread running: " + Thread.currentThread().getId());
+    }
+}
+</code></pre>
+            </section>
+
+            <section id="synchronization">
+                <h2>Synchronization in Java</h2>
+                <p>Synchronization is used to control access to shared resources by multiple threads. This is crucial to prevent thread interference and memory consistency errors.</p>
+                <pre><code>public class SynchronizationExample {
+    public static void main(String[] args) {
+        Counter counter = new Counter();
+        
+        Thread thread1 = new Thread(() -> counter.increment());
+        Thread thread2 = new Thread(() -> counter.increment());
+        
+        thread1.start();
+        thread2.start();
+    }
+}
+
+class Counter {
+    private int count = 0;
+    
+    synchronized void increment() {
+        count++;
+        System.out.println("Count: " + count);
+    }
+}
+</code></pre>
+            </section>
+
+            <section id="file-handling">
+                <h2>File Handling in Java</h2>
+                <p>Java provides classes for reading and writing files. The <code>FileReader</code> and <code>FileWriter</code> classes are used for text file operations, while the <code>BufferedReader</code> and <code>BufferedWriter</code> classes are used for efficient reading and writing.</p>
+                <pre><code>import java.io.*;
+
+public class FileHandlingExample {
+    public static void main(String[] args) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("example.txt"))) {
+            writer.write("Hello, Java File Handling!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        try (BufferedReader reader = new BufferedReader(new FileReader("example.txt"))) {
+            String line = reader.readLine();
+            System.out.println("Read from file: " + line);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+            </section>
+
+            <section id="regex">
+                <h2>Java Regex</h2>
+                <p>Regular expressions (regex) are used for pattern matching in strings. Java provides the <code>Pattern</code> and <code>Matcher</code> classes for regex operations.</p>
+                <pre><code>import java.util.regex.*;
+
+public class RegexExample {
+    public static void main(String[] args) {
+        String text = "The quick brown fox";
+        String regex = "quick\\s+brown\\s+fox";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(text);
+        
+        if (matcher.find()) {
+            System.out.println("Pattern found: " + matcher.group());
+        } else {
+            System.out.println("Pattern not found.");
+        }
+    }
+}
+</code></pre>
+            </section>
+
+            <section id="io">
+                <h2>Java IO</h2>
+                <p>Java I/O (Input/Output) provides classes for handling data input and output operations. The java.io package contains various classes for file and data stream operations.</p>
+                <pre><code>import java.io.*;
+
+public class IOExample {
+    public static void main(String[] args) {
+        try (FileInputStream input = new FileInputStream("input.txt");
+             FileOutputStream output = new FileOutputStream("output.txt")) {
+            int data;
+            while ((data = input.read()) != -1) {
+                output.write(data);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+            </section>
+
+            <section id="networking">
+                <h2>Java Networking</h2>
+                <p>Java provides networking capabilities through the java.net package. It supports network operations such as communication between systems and socket programming.</p>
+                <pre><code>import java.io.*;
+import java.net.*;
+
+public class NetworkingExample {
+    public static void main(String[] args) {
+        try (ServerSocket serverSocket = new ServerSocket(1234);
+             Socket clientSocket = serverSocket.accept();
+             PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+             BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()))) {
+            
+            String inputLine;
+            while ((inputLine = in.readLine()) != null) {
+                System.out.println("Received: " + inputLine);
+                out.println("Echo: " + inputLine);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+            </section>
+
+            <section id="jdbc">
+                <h2>JDBC - Java Database Connectivity</h2>
+                <p>JDBC (Java Database Connectivity) is an API for connecting and executing queries with databases. It allows Java applications to interact with relational databases.</p>
+                <pre><code>import java.sql.*;
+
+public class JDBCExample {
+    public static void main(String[] args) {
+        String url = "jdbc:mysql://localhost:3306/mydatabase";
+        String user = "root";
+        String password = "password";
+        
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+             Statement stmt = conn.createStatement()) {
+            
+            ResultSet rs = stmt.executeQuery("SELECT * FROM mytable");
+            while (rs.next()) {
+                System.out.println("Column1: " + rs.getString("column1"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+            </section>
+        </main>
+    </div>
+    <script>
+        function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const width = window.innerWidth;
+
+    // Only toggle the sidebar if the screen width is less than 768px (small screens)
+    if (width < 768) {
+        if (sidebar.style.transform === 'translateX(0px)') {
+            sidebar.style.transform = 'translateX(-100%)';
+        } else {
+            sidebar.style.transform = 'translateX(0px)';
+        }
+    }
+}
+
+// Ensure the sidebar is always visible on wide screens after resizing
+window.addEventListener('resize', function() {
+    const sidebar = document.getElementById('sidebar');
+    const width = window.innerWidth;
+
+    if (width >= 768) {
+        sidebar.style.transform = 'translateX(0px)';  // Keep sidebar visible on wide screens
+    } else {
+        sidebar.style.transform = 'translateX(-100%)'; // Hide sidebar on small screens after resizing
+    }
+});
+
+    </script>
+</body>
+</html>

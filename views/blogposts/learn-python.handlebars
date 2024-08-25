@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Python Programming</title>
+    <style>
+        /* Container styles */
+.container {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 250px;
+    background-color: #306998; /* Python blue color */
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: translateX(0px);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+    color: white;
+    padding-top: 20px;
+    margin-top: 100px;
+}
+
+/* Sidebar link styles */
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    text-align: left;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.sidebar ul li a:hover {
+    background-color: #FFD43B; /* Python yellow color */
+    color: #306998;
+}
+
+/* Content area styles */
+.content {
+    margin-left: 250px; /* Adjusts based on the width of the sidebar */
+    padding: 20px;
+    flex: 1;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+/* Toggle button */
+.toggle-btn {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    font-size: 30px;
+    background-color: #306998;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 1100;
+    border-radius: 5px;
+    margin-top: 80px;
+}
+
+/* Style for code blocks */
+code {
+    background-color: #f5f5f5; /* Light gray background */
+    border-left: 5px solid #306998; /* Python blue border on the left */
+    padding: 10px;
+    display: block;
+    white-space: pre-wrap;
+    font-family: 'Courier New', Courier, monospace;
+    overflow-x: auto; /* Handle long lines */
+}
+
+/* For <pre> blocks specifically */
+pre {
+    margin: 20px 0;
+    border-radius: 4px; /* Optional: rounded corners */
+}
+
+/* Hide sidebar and adjust content for small screens */
+@media screen and (max-width: 1000px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .content {
+        width: 90%;
+        margin-left: 0;
+    }
+
+    .toggle-btn {
+        display: block;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+
+        <aside id="sidebar" class="sidebar">
+            <ul>
+                <li><a href="#first-program">Writing your first Python Program</a></li>
+                <li><a href="#setup">Setting up Python</a></li>
+                <li><a href="#getting-started">Getting Started with Python Programming</a></li>
+                <li><a href="#input-output">Python Input/Output</a></li>
+                <li><a href="#data-types">Python Data Types</a></li>
+                <li><a href="#operators">Python Operators</a></li>
+                <li><a href="#conditional">Python Conditional Statement</a></li>
+                <li><a href="#loops">Python Loops</a></li>
+                <li><a href="#functions">Python Functions</a></li>
+                <li><a href="#oops">Python OOPs Concepts</a></li>
+                <li><a href="#exception-handling">Python Exception Handling</a></li>
+                <li><a href="#packages">Python Packages or Libraries</a></li>
+                <li><a href="#collections">Python Collections</a></li>
+                <li><a href="#projects">Python Projects</a></li>
+                <li><a href="#comparison">Python vs. Other Programming Languages</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <section id="first-program">
+                <h2>Writing your first Python Program</h2>
+                <p>Let's start with the classic "Hello, World!" program in Python:</p>
+                <pre><code>print("Hello, World!")
+</code></pre>
+                <p>This simple line of code uses the <code>print()</code> function to output text to the console.</p>
+            </section>
+
+            <section id="setup">
+                <h2>Setting up Python</h2>
+                <p>To start programming in Python, you need to:</p>
+                <ol>
+                    <li>Download Python from the official website (python.org)</li>
+                    <li>Install Python on your system</li>
+                    <li>Set up a development environment (like PyCharm, VSCode, or IDLE)</li>
+                </ol>
+                <p>After installation, you can verify it by opening a command prompt and typing:</p>
+                <pre><code>python --version
+</code></pre>
+            </section>
+
+            <section id="getting-started">
+                <h2>Getting Started with Python Programming</h2>
+                <p>Python is known for its simplicity and readability. Here's a simple program to get you started:</p>
+                <pre><code>name = input("What's your name? ")
+print(f"Hello, {name}! Welcome to Python programming.")
+</code></pre>
+                <p>This program prompts the user for their name and then greets them.</p>
+            </section>
+
+            <section id="input-output">
+                <h2>Python Input/Output</h2>
+                <p>Python uses <code>input()</code> for receiving user input and <code>print()</code> for output.</p>
+                <pre><code># Input
+user_input = input("Enter something: ")
+
+# Output
+print("You entered:", user_input)
+
+# Formatted output
+age = 25
+print(f"I am {age} years old.")
+</code></pre>
+            </section>
+
+            <section id="data-types">
+                <h2>Python Data Types</h2>
+                <p>Python has several built-in data types:</p>
+                <pre><code># Numeric Types
+integer = 42
+float_number = 3.14
+
+# String
+text = "Hello, Python!"
+
+# Boolean
+is_python_fun = True
+
+# List
+my_list = [1, 2, 3, 4, 5]
+
+# Tuple
+my_tuple = (1, "two", 3.0)
+
+# Dictionary
+my_dict = {"name": "John", "age": 30}
+
+# Set
+my_set = {1, 2, 3, 4, 5}
+</code></pre>
+            </section>
+
+            <section id="operators">
+                <h2>Python Operators</h2>
+                <p>Python supports various types of operators:</p>
+                <pre><code># Arithmetic Operators
+print(5 + 3)  # Addition
+print(5 - 3)  # Subtraction
+print(5 * 3)  # Multiplication
+print(5 / 3)  # Division
+print(5 % 3)  # Modulus
+print(5 ** 3) # Exponentiation
+
+# Comparison Operators
+print(5 > 3)  # Greater than
+print(5 < 3)  # Less than
+print(5 == 3) # Equal to
+print(5 != 3) # Not equal to
+
+# Logical Operators
+print(True and False) # Logical AND
+print(True or False)  # Logical OR
+print(not True)       # Logical NOT
+</code></pre>
+            </section>
+
+            <section id="conditional">
+                <h2>Python Conditional Statement</h2>
+                <p>Conditional statements allow you to execute different code based on certain conditions:</p>
+                <pre><code>age = 18
+
+if age < 18:
+    print("You are a minor.")
+elif age == 18:
+    print("You just became an adult!")
+else:
+    print("You are an adult.")
+</code></pre>
+            </section>
+
+            <section id="loops">
+                <h2>Python Loops</h2>
+                <p>Python has two main types of loops: <code>for</code> and <code>while</code>.</p>
+                <pre><code># For loop
+for i in range(5):
+    print(i)
+
+# While loop
+count = 0
+while count < 5:
+    print(count)
+    count += 1
+</code></pre>
+            </section>
+
+            <section id="functions">
+                <h2>Python Functions</h2>
+                <p>Functions in Python are defined using the <code>def</code> keyword:</p>
+                <pre><code>def greet(name):
+    return f"Hello, {name}!"
+
+print(greet("Alice"))
+
+# Lambda function (anonymous function)
+square = lambda x: x ** 2
+print(square(5))
+</code></pre>
+            </section>
+
+            <section id="oops">
+                <h2>Python OOPs Concepts</h2>
+                <p>Python supports Object-Oriented Programming (OOP) concepts:</p>
+                <pre><code>class Dog:
+    def __init__(self, name):
+        self.name = name
+    
+    def bark(self):
+        return f"{self.name} says Woof!"
+
+my_dog = Dog("Buddy")
+print(my_dog.bark())
+</code></pre>
+            </section>
+
+            <section id="exception-handling">
+                <h2>Python Exception Handling</h2>
+                <p>Exception handling in Python is done using try-except blocks:</p>
+                <pre><code>try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Error: Division by zero!")
+finally:
+    print("This always executes.")
+</code></pre>
+            </section>
+
+            <section id="packages">
+                <h2>Python Packages or Libraries</h2>
+                <p>Python has a rich ecosystem of packages. Here's how to use a popular one, NumPy:</p>
+                <pre><code>import numpy as np
+
+arr = np.array([1, 2, 3, 4, 5])
+print(arr.mean())
+</code></pre>
+            </section>
+
+            <section id="collections">
+                <h2>Python Collections</h2>
+                <p>Python provides several built-in collection types:</p>
+                <pre><code>from collections import Counter, defaultdict, OrderedDict
+
+# Counter
+c = Counter('hello')
+print(c)
+
+# defaultdict
+d = defaultdict(int)
+d['key'] += 1
+print(d)
+
+# OrderedDict
+od = OrderedDict()
+od['a'] = 1
+od['b'] = 2
+print(od)
+</code></pre>
+            </section>
+
+            <section id="projects">
+                <h2>Python Projects</h2>
+                <p>Here's a simple project idea: a basic calculator</p>
+                <pre><code>def add(x, y):
+    return x + y
+
+def subtract(x, y):
+    return x - y
+
+def multiply(x, y):
+    return x * y
+
+def divide(x, y):
+    if y == 0:
+        return "Error: Division by zero!"
+    return x / y
+
+print("Select operation:")
+print("1. Add")
+print("2. Subtract")
+print("3. Multiply")
+print("4. Divide")
+
+choice = input("Enter choice (1/2/3/4): ")
+num1 = float(input("Enter first number: "))
+num2 = float(input("Enter second number: "))
+
+if choice == '1':
+    print(num1, "+", num2, "=", add(num1, num2))
+elif choice == '2':
+    print(num1, "-", num2, "=", subtract(num1, num2))
+elif choice == '3':
+    print(num1, "*", num2, "=", multiply(num1, num2))
+elif choice == '4':
+    print(num1, "/", num2, "=", divide(num1, num2))
+else:
+    print("Invalid input")
+</code></pre>
+            </section>
+
+            <section id="comparison">
+                <h2>Python vs. Other Programming Languages</h2>
+                <p>Python compared to other languages:</p>
+                <ul>
+                    <li>Readability: Python's syntax is clear and readable compared to C++ or Java.</li>
+                    <li>Ease of Use: Python is easier to learn than languages like C# or JavaScript.</li>
+                    <li>Versatility: Python is used in web development, data science, AI, and more, unlike specialized languages.</li>
+                    <li>Performance: Python is generally slower than compiled languages like C or Java for CPU-intensive tasks.</li>
+                    <li>Community: Python has a large, active community compared to newer languages like Go or Rust.</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+    <script>
+        function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const width = window.innerWidth;
+
+    // Only toggle the sidebar if the screen width is less than 768px (small screens)
+    if (width < 768) {
+        if (sidebar.style.transform === 'translateX(0px)') {
+            sidebar.style.transform = 'translateX(-100%)';
+        } else {
+            sidebar.style.transform = 'translateX(0px)';
+        }
+    }
+}
+
+// Ensure the sidebar is always visible on wide screens after resizing
+window.addEventListener('resize', function() {
+    const sidebar = document.getElementById('sidebar');
+    const width = window.innerWidth;
+
+    if (width >= 768) {
+        sidebar.style.transform = 'translateX(0px)';  // Keep sidebar visible on wide screens
+    } else {
+        sidebar.style.transform = 'translateX(-100%)'; // Hide sidebar on small screens after resizing
+    }
+});
+    </script>
+</body>
+</html>

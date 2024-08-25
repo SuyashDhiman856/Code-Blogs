@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Angular Framework</title>
+    <style>
+        /* Container styles */
+        .container {
+            display: flex;
+            flex-direction: row;
+            min-height: 100vh;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            width: 250px;
+            background-color: #dd1b16; /* Angular red color */
+            position: fixed;
+            height: 100%;
+            top: 0;
+            left: 0;
+            transform: translateX(0px);
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+            color: white;
+            padding-top: 20px;
+            margin-top: 100px;
+        }
+
+        /* Sidebar link styles */
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #b71c1c; /* Darker red on hover */
+        }
+
+        /* Content area styles */
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+            flex: 1;
+            transition: margin-left 0.3s ease-in-out;
+        }
+
+        /* Toggle button */
+        .toggle-btn {
+            display: none;
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            font-size: 30px;
+            background-color: #dd1b16;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            z-index: 1100;
+            border-radius: 5px;
+            margin-top: 80px;
+        }
+
+        /* Style for code blocks */
+        code {
+            background-color: #f5f5f5;
+            border-left: 5px solid #dd1b16;
+            padding: 10px;
+            display: block;
+            white-space: pre-wrap;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: auto;
+        }
+
+        /* For <pre> blocks specifically */
+        pre {
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        /* Hide sidebar and adjust content for small screens */
+        @media screen and (max-width: 1000px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .content {
+                width: 90%;
+                margin-left: 0;
+            }
+
+            .toggle-btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+
+        <aside id="sidebar" class="sidebar">
+            <ul>
+                <li><a href="#angular-material-installation">Angular Material Installation</a></li>
+                <li><a href="#ngx-bootstrap">Angular ngx Bootstrap</a></li>
+                <li><a href="#what-is-angular">What is Angular?</a></li>
+                <li><a href="#what-is-angular-material">What is Angular Material?</a></li>
+                <li><a href="#angular-material-stepper">Angular Material Stepper</a></li>
+                <li><a href="#primeng-introduction">Angular PrimeNG Introduction</a></li>
+                <li><a href="#primeng-table-layout">Angular PrimeNG Table Layout</a></li>
+                <li><a href="#angular-7">Angular 7 | Introduction</a></li>
+                <li><a href="#angular-8">Angular 8 | Introduction</a></li>
+                <li><a href="#primeng-tooltip-button">Angular PrimeNG Tooltip Button</a></li>
+                <li><a href="#angularjs-intro">Introduction to AngularJS</a></li>
+                <li><a href="#primeng-menu-methods">Angular PrimeNG Menu Methods</a></li>
+                <li><a href="#angularjs-examples">AngularJS Examples</a></li>
+                <li><a href="#angularjs-controllers">AngularJS Controllers</a></li>
+                <li><a href="#primeng-button-templates">Angular PrimeNG Button Templates</a></li>
+                <li><a href="#primeng-treetable-methods">Angular PrimeNG TreeTable Methods</a></li>
+                <li><a href="#angularjs-paging">Paging in AngularJS</a></li>
+                <li><a href="#primeng-table-contextmenu">Angular PrimeNG Table ContextMenu</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <section id="angular-material-installation">
+                <h2>Angular Material Installation</h2>
+                <p>Angular Material is a UI component library for Angular applications. Here's how to install it:</p>
+                <pre><code>ng add @angular/material</code></pre>
+            </section>
+
+            <section id="ngx-bootstrap">
+                <h2>Angular ngx Bootstrap</h2>
+                <p>ngx-bootstrap is a popular library that brings Bootstrap components to Angular. To install:</p>
+                <pre><code>ng add ngx-bootstrap</code></pre>
+            </section>
+
+            <!-- Add more sections for each topic -->
+
+            <section id="what-is-angular">
+                <h2>What is Angular?</h2>
+                <p>Angular is a platform and framework for building single-page client applications using HTML and TypeScript. It's component-based, allowing you to build UIs with modular pieces of code.</p>
+            </section>
+
+            <!-- Continue with other sections... -->
+
+        </main>
+    </div>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const width = window.innerWidth;
+
+            if (width < 768) {
+                if (sidebar.style.transform === 'translateX(0px)') {
+                    sidebar.style.transform = 'translateX(-100%)';
+                } else {
+                    sidebar.style.transform = 'translateX(0px)';
+                }
+            }
+        }
+
+        window.addEventListener('resize', function() {
+            const sidebar = document.getElementById('sidebar');
+            const width = window.innerWidth;
+
+            if (width >= 768) {
+                sidebar.style.transform = 'translateX(0px)';
+            } else {
+                sidebar.style.transform = 'translateX(-100%)';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn C Programming</title>
+    <style>
+/* Container styles */
+.container {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 250px;
+    background-color: #0056b3;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: translateX(0px);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+    color: white;
+    padding-top: 20px;
+    margin-top: 90px;
+}
+
+/* Sidebar link styles */
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    text-align: left;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.sidebar ul li a:hover {
+    background-color: #004494;
+}
+
+/* Content area styles */
+.content {
+    margin-left: 250px; /* Adjusts based on the width of the sidebar */
+    padding: 20px;
+    flex: 1;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+/* Style for code blocks */
+code{
+    background-color: #f5f5f5; /* Light gray background */
+    border-left: 5px solid #0056b3; /* Blue border on the left */
+    padding: 10px;
+    display: block;
+    white-space: pre-wrap;
+    font-family: 'Courier New', Courier, monospace;
+    overflow-x: auto; /* Handle long lines */
+}
+
+/* For <pre> blocks specifically */
+pre {
+    margin: 20px 0;
+    border-radius: 4px; /* Optional: rounded corners */
+}
+
+
+/* Toggle button */
+.toggle-btn {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    font-size: 30px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 1100;
+    border-radius: 5px;
+    margin-top: 80px;
+}
+
+/* Hide sidebar and adjust content for small screens */
+@media screen and (max-width: 1000px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .content {
+        margin-left: 0;
+    }
+
+    .toggle-btn {
+        display: block;
+    }
+}
+
+    </style>
+    <script>
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const width = window.innerWidth;
+
+    // Only toggle the sidebar if the screen width is less than 768px (small screens)
+    if (width < 768) {
+        if (sidebar.style.transform === 'translateX(0px)') {
+            sidebar.style.transform = 'translateX(-100%)';
+        } else {
+            sidebar.style.transform = 'translateX(0px)';
+        }
+    }
+}
+
+// Ensure the sidebar is always visible on wide screens after resizing
+window.addEventListener('resize', function() {
+    const sidebar = document.getElementById('sidebar');
+    const width = window.innerWidth;
+
+    if (width >= 768) {
+        sidebar.style.transform = 'translateX(0px)';  // Keep sidebar visible on wide screens
+    } else {
+        sidebar.style.transform = 'translateX(-100%)'; // Hide sidebar on small screens after resizing
+    }
+});
+
+    </script>
+</head>
+<body>
+    <div class="container">
+         <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+
+        <!-- Sidebar -->
+        <aside id="sidebar" class="sidebar">
+            <ul>
+                <li><a href="#c-basics">C Basics</a></li>
+                <li><a href="#c-variables-constants">C Variables and Constants</a></li>
+                <li><a href="#c-data-types">C Data Types</a></li>
+                <li><a href="#c-input-output">C Input/Output</a></li>
+                <li><a href="#c-operators">C Operators</a></li>
+                <li><a href="#c-control-statements">C Control Statements</a></li>
+                <li><a href="#c-functions">C Functions</a></li>
+                <li><a href="#c-arrays-strings">C Arrays & Strings</a></li>
+                <li><a href="#c-pointers">C Pointers</a></li>
+                <li><a href="#c-user-defined-types">C User-Defined Data Types</a></li>
+                <li><a href="#c-storage-classes">C Storage Classes</a></li>
+                <li><a href="#c-memory-management">C Memory Management</a></li>
+                <li><a href="#c-preprocessor">C Preprocessor</a></li>
+                <li><a href="#c-file-handling">C File Handling</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <!-- C Basics Section -->
+            <section id="c-basics">
+                <h2>C Basics</h2>
+                <p>C is a powerful general-purpose programming language. It is fast, portable, and available on all platforms. C is a structured programming language that is machine-independent and extensively used to write various applications, operating systems, and complex programs like databases or compilers.</p>
+                <h3>Example:</h3>
+                <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    printf("Hello, World!");
+    return 0;
+}
+                </code></pre>
+            </section>
+
+            <!-- C Variables and Constants Section -->
+            <section id="c-variables-constants">
+                <h2>C Variables and Constants</h2>
+                <p>Variables are containers for storing data values. In C, you must declare a variable before using it. Constants are values that do not change during the execution of a program.</p>
+                <h3>Example:</h3>
+                <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    int myVar = 10; // Variable declaration
+    const int MY_CONST = 100; // Constant declaration
+    printf("Variable: %d, Constant: %d", myVar, MY_CONST);
+    return 0;
+}
+                </code></pre>
+            </section>
+
+            <!-- C Data Types Section -->
+            <section id="c-data-types">
+                <h2>C Data Types</h2>
+                <p>Data types specify the type of data that a variable can store. C supports several types of data types:</p>
+                <ul>
+                    <li><strong>int:</strong> Used to store integers.</li>
+                    <li><strong>float:</strong> Used to store decimal numbers.</li>
+                    <li><strong>char:</strong> Used to store single characters.</li>
+                    <li><strong>double:</strong> Used to store large decimal numbers.</li>
+                </ul>
+                <h3>Example:</h3>
+                <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    int age = 25;
+    float salary = 55000.50;
+    char grade = 'A';
+    double pi = 3.14159;
+
+    printf("Age: %d\n", age);
+    printf("Salary: %.2f\n", salary);
+    printf("Grade: %c\n", grade);
+    printf("Pi: %lf\n", pi);
+
+    return 0;
+}
+                </code></pre>
+            </section>
+
+            <!-- C Input/Output Section -->
+            <section id="c-input-output">
+                <h2>C Input/Output</h2>
+                <p>Input and output in C are handled by functions such as <code>scanf()</code> for input and <code>printf()</code> for output.</p>
+                <h3>Example:</h3>
+                <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    printf("You entered: %d\n", num);
+    return 0;
+}
+                </code></pre>
+            </section>
+
+            <!-- C Operators Section -->
+            <section id="c-operators">
+                <h2>C Operators</h2>
+                <p>Operators in C are symbols that tell the compiler to perform specific mathematical or logical manipulations.</p>
+                <ul>
+                    <li><strong>Arithmetic Operators:</strong> +, -, *, /, %</li>
+                    <li><strong>Relational Operators:</strong> ==, !=, &gt;, &lt;, &gt;=, &lt;=</li>
+                    <li><strong>Logical Operators:</strong> &amp;&amp;, ||, !</li>
+                </ul>
+                <h3>Example:</h3>
+                <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 5, b = 10;
+    printf("a + b = %d\n", a + b);
+    printf("a &gt; b = %d\n", a &gt; b);
+    printf("a == b = %d\n", a == b);
+    return 0;
+}
+                </code></pre>
+            </section>
+
+            <!-- C Control Statements Section -->
+            <section id="c-control-statements">
+                <h2>C Control Statements</h2>
+                <p>Control statements in C control the flow of execution of the program. Common control statements include <code>if</code>, <code>else</code>, <code>switch</code>, and loops like <code>for</code>, <code>while</code>, and <code>do-while</code>.</p>
+                <h3>Example:</h3>
+                <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    int num = 10;
+
+    if (num &gt; 0) {
+        printf("Number is positive.\n");
+    } else {
+        printf("Number is negative or zero.\n");
+    }
+
+    for (int i = 1; i &lt;= 5; i++) {
+        printf("%d ", i);
+    }
+
+    return 0;
+}
+                </code></pre>
+            </section>
+
+            <!-- C Functions Section -->
+            <section id="c-functions">
+                <h2>C Functions</h2>
+                <p>Functions are blocks of code that perform a specific task. In C, functions can be user-defined or built-in.</p>
+                <h3>Example:</h3>
+                <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+// Function declaration
+int add(int, int);
+
+int main() {
+    int result = add(5, 10);
+    printf("Result: %d\n", result);
+    return 0;
+}
+
+// Function definition
+int add(int a, int b) {
+    return a + b;
+}
+                </code></pre>
+            </section>
+
+            <!-- C Arrays & Strings Section -->
+            <section id="c-arrays-strings">
+                <h2>C Arrays & Strings</h2>
+                <p>Arrays are used to store multiple values of the same type, while strings are arrays of characters.</p>
+                <h3>Example:</h3>
+                <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    int numbers[5] = {1, 2, 3, 4, 5};
+    char name[] = "John";
+
+    for (int i = 0; i &lt; 5; i++) {
+        printf("%d ", numbers[i]);
+    }
+
+    printf("\nName: %s\n", name);
+
+    return 0;
+}
+                </code></pre>
+            </section>
+
+            <!-- C Pointers Section -->
+            <section id="c-pointers">
+                <h2>C Pointers</h2>
+                <p>Pointers are variables that store the memory address of another variable.</p>
+                <h3>Example:</h3>
+                <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    int var = 10;
+    int *ptr = &var;
+
+    printf("Value of var: %d\n", var);
+    printf("Address of var: %p\n", ptr);
+    printf("Value at address stored in ptr: %d\n", *ptr);
+
+    return 0;
+}
+                </code></pre>
+            </section>
+
+            <!-- C User-Defined Data Types Section -->
+            <section id="c-user-defined-types">
+                <h2>C User-Defined Data Types</h2>
+                <p>User-defined data types in C include structures, unions, and enumerations.</p>
+                <h3>Example:</h3>
+                <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+// Structure declaration
+struct Student {
+    char name[50];
+    int age;
+    float marks;
+};
+
+int main() {
+    struct Student student1 = {"John", 20, 88.5};
+
+    printf("Name: %s\n", student1.name);
+    printf("Age: %d\n", student1.age);
+    printf("Marks: %.2f\n", student1.marks);
+
+    return 0;
+}
+                </code></pre>
+            </section>
+
+            <!-- C Storage Classes Section -->
+            <section id="c-storage-classes">
+                <h2>C Storage Classes</h2>
+                <p>Storage classes define the scope, visibility, and lifetime of variables and/or functions within a C program. The four types of storage classes are auto, extern, static, and register.</p>
+                <h3>Example:</h3>
+                <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+void func() {
+    static int x = 0; // Static variable
+    x++;
+    printf("x = %d\n", x);
+}
+
+int main() {
+    func();
+    func();
+    func();
+
+    return 0;
+}
+                </code></pre>
+            </section>
+
+            <!-- C Memory Management Section -->
+            <section id="c-memory-management">
+                <h2>C Memory Management</h2>
+                <p>C provides functions like <code>malloc()</code>, <code>calloc()</code>, <code>realloc()</code>, and <code>free()</code> to allocate and deallocate memory dynamically during the runtime.</p>
+                <h3>Example:</h3>
+                <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main() {
+    int *ptr;
+    int n, i;
+
+    n = 5;
+    ptr = (int*)malloc(n * sizeof(int));
+
+    if (ptr == NULL) {
+        printf("Memory not allocated.\n");
+        return 1;
+    }
+
+    for (i = 0; i < n; ++i) {
+        ptr[i] = i + 1;
+    }
+
+    printf("Elements of the array: ");
+    for (i = 0; i < n; ++i) {
+        printf("%d ", ptr[i]);
+    }
+
+    free(ptr);
+    return 0;
+}
+                </code></pre>
+            </section>
+
+            <!-- C Preprocessor Section -->
+            <section id="c-preprocessor">
+                <h2>C Preprocessor</h2>
+                <p>The C preprocessor is a tool that is invoked by the compiler to process some text before the actual compilation starts. The most commonly used preprocessor directives are <code>#define</code>, <code>#include</code>, <code>#if</code>, <code>#else</code>, and <code>#endif</code>.</p>
+                <h3>Example:</h3>
+                <pre><code class="language-c">#include &lt;stdio.h&gt;
+#define PI 3.14159
+
+int main() {
+    printf("Value of PI: %f\n", PI);
+    return 0;
+}
+                </code></pre>
+            </section>
+
+            <!-- C File Handling Section -->
+            <section id="c-file-handling">
+                <h2>C File Handling</h2>
+                <p>File handling in C allows you to create, open, read, write, and close files. The standard I/O functions <code>fopen()</code>, <code>fclose()</code>, <code>fread()</code>, and <code>fwrite()</code> are commonly used.</p>
+                <h3>Example:</h3>
+                <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    FILE *fp;
+    char data[50];
+
+    fp = fopen("example.txt", "w");
+
+    if (fp == NULL) {
+        printf("File cannot be opened.\n");
+        return 1;
+    }
+
+    printf("Enter some text: ");
+    gets(data);
+
+    fprintf(fp, "%s", data);
+    fclose(fp);
+
+    printf("Data written to file successfully.\n");
+
+    return 0;
+}
+                </code></pre>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>
