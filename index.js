@@ -5,7 +5,6 @@ const app = express();
 const port = 3000;
 
 app.use(express.static(path.join(__dirname, "views")));
-app.use("/images", express.static(path.join(__dirname, "/static/images")));
 app.use('/', require(path.join(__dirname, "../router/router.js")));
 
 app.engine('handlebars', exphbs.engine());
