@@ -40,7 +40,7 @@ router.get("/blogposts/new", (req, res) => {
     });
 })
 
-router.get("/blogpost", (req, res) => {
+router.get("/blogposts", (req, res) => {
     res.render('blogpost', {
         blogs: blogs.blogs,
     })

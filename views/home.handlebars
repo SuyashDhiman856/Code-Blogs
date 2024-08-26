@@ -56,19 +56,19 @@
     <div class="container-fluid px-4 py-5 my-5 text-center">
         <div class="lc-block mb-4">
             <div editable="rich">
-                <h2 class="display-2 fw-bold">Level up your <span class="text-primary">WordPress page!</span></h2>
+                <h2 class="display-2 fw-bold">Level up your <span class="text-primary">Coding Skills</span></h2>
             </div>
         </div>
         <div class="lc-block col-lg-6 mx-auto mb-5">
             <div editable="rich">
 
-                <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap</p>
+                <p class="lead">Code Blogs: Dive Deep into Programming with Expert Tips and Comprehensive Guides.</p>
             </div>
         </div>
 
         <div class="lc-block d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"> <a
-                class="btn btn-primary btn-lg px-4 gap-3" href="#" role="button">Try it free</a>
-            <a class="btn btn-outline-secondary btn-lg px-4" href="#" role="button">Learn more</a>
+                class="btn btn-primary btn-lg px-4 gap-3" href="/blogposts" role="button">Try it free</a>
+            <a class="btn btn-outline-secondary btn-lg px-4" href="/blogposts/popular" role="button">Popular Blogs</a>
         </div>
         <div class="lc-block d-grid gap-2 d-sm-flex justify-content-sm-center">
             <img class="img-fluid"
@@ -84,7 +84,7 @@
                 <div class="card border-0">
                     <figure class="card-img-top m-0 overflow-hidden bsb-overlay-hover">
                         <a href="#!">
-                            <a href="/blogposts/{{this.slug}}"><img style="margin-bottom: 0;"
+                            <a href="/blogpost/{{this.slug}}"><img style="margin-bottom: 0;"
                                     class="img-fluid bsb-scale bsb-hover-scale-up" loading="lazy"
                                     src="/images/{{this.image}}"></a>
                         </a>
@@ -110,7 +110,7 @@
                         <p class="card-text entry-summary text-secondary mb-3">
                             {{this.content}}
                         </p>
-                        <a href="/blogposts/{{this.slug}}" class="btn btn-primary m-0 text-nowrap entry-more">Read
+                        <a href="/blogpost/{{this.slug}}" class="btn btn-primary m-0 text-nowrap entry-more">Read
                             More</a>
                     </div>
                     <div class="card-footer border border-top-0 bg-light p-4">
